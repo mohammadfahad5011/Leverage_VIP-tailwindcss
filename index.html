@@ -1,0 +1,1803 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- animate on scroll (AOS) CSS -->
+    <link href="assets/css/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!-- tailwind script file  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '13px',
+                        sm: '15px',
+                        lg: '15px',
+                        xl: '15px',
+                    },
+                    screens: {
+                        sm: '600px',
+                        md: '768px',
+                        lg: '1024px',
+                        xl: '1140px',
+                    },
+                },
+                fontFamily: {
+                    manrope: ['Manrope', 'sans-serif'],
+                    poppins: ['Poppins', 'sans-serif'],
+                    space: ['Space Grotesk', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        black:"#070200",
+                    },
+                    backgroundSize: {
+                        'size-200': '200% 200%',
+                    },
+                    backgroundPosition: {
+                        'pos-0': '0% 0%',
+                        'pos-100': '100% 100%',
+                    },
+                },
+            },
+        };
+
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer base{
+            /* font-family: 'Manrope', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif; */
+            /* class="bg-gradient-to-91.99 from-yellow-400 to-yellow-700" */
+
+            body{    
+                font-family: 'Space Grotesk', sans-serif;
+                background: #000000;
+                color: #fff;
+            } 
+            .container_lg{
+                max-width: 1224px;
+                margin-inline: auto;
+            }
+            .bg-100{
+                background-size: 100% 100%;
+            }
+            .accordion-content {
+                transition: max-height 0.3s ease-out, padding 0.3s ease;
+            }
+            .gradient_bg{
+                background: linear-gradient(91.99deg, #CDB45F 0%, #B08E35 100%);
+            }
+            .rocket_card_hover{
+                background: #F6E7D3;
+                box-shadow: 0px 24px 74px rgba(48, 64, 77, 0.11);
+            }
+            /* Tab content - closed */
+            .tab-content {
+                max-height: 0;
+                -webkit-transition: max-height 0.35s;
+                -o-transition: max-height 0.35s;
+                transition: max-height 0.35s;
+            }
+            /* :checked - resize to full height */
+            .tab input:checked ~ .tab-content {
+                max-height: 100vh;
+            }
+            /* Label formatting when open */
+            .tab input:checked + label {
+                /*@apply text-xl p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*/
+                font-size: 1.25rem; /*.text-xl*/
+                /* padding: 1.25rem;  */
+                padding: 45px;
+                padding-bottom: 14px;
+                background-color: #F6E7D3; /*.bg-gray-100 */
+                color: #000000; /*.text-indigo*/
+            }
+
+            @media screen and (max-width: 570px){
+                .tab label::after{
+                    display: none;
+                }
+                .tab input[type="checkbox"] + label::after{
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                .tab input:checked + label {
+                    padding: 20px;
+                    font-size: 1rem;
+                }
+                /* .tab label::after{
+                    display: none;
+                }
+                .tab input[type="checkbox"] + label::after{
+                    display: none;
+                } */
+            }
+
+            @media screen and (max-width: 1023px){
+                .tab input:checked + label{ 
+                    padding: 20px;
+                    font-size: 18px;
+                } 
+            }
+
+            /* Icon */
+            .tab label::after {
+                float: right;
+                right: 0;
+                top: 0;
+                display: block;
+                width: 1.5em;
+                height: 1.5em;
+                line-height: 1.5;
+                font-size: 1.25rem;
+                text-align: center;
+                -webkit-transition: all 0.35s;
+                -o-transition: all 0.35s;
+                transition: all 0.35s;
+                color: #fff;
+            }
+            /* Icon formatting - closed */
+            .tab input[type="checkbox"] + label::after {
+                content: "+";
+                font-weight: bold; /*.font-bold*/
+                border-radius: 9999px; /*.rounded-full */
+                background: linear-gradient(91.99deg, #CDB45F 0%, #B08E35 100%);
+            }
+            .tab input[type="radio"] + label::after {
+                content: "-";
+                font-weight: bold; /*.font-bold*/
+                border-radius: 9999px; /*.rounded-full */
+                background-color: #000;
+            }
+            /* Icon formatting - open */
+            .tab input[type="checkbox"]:checked + label::after {
+                transform: rotate(180deg);
+                content: "-";
+                background: #000; /*.bg-indigo*/
+                color: #fff; /*.text-grey-lightest*/
+            }
+            .tab input[type="radio"]:checked + label::after {
+                transform: rotateX(180deg);
+                background-color: #000; /*.bg-indigo*/
+                color: #fff; /*.text-grey-lightest*/
+            }
+        }
+    </style>
+
+    <title> Leverage.VIP </title>
+
+</head>
+
+<body>
+
+    <!-- notification div  -->
+    <div class="hidden overlay">
+        <div class="bg-[#000000B5] fixed inset-0 flex items-center justify-center z-50">
+            <div class="px-[45px] pt-[43px] pb-[54px] bg-[#F6E7D3] rounded-[10px] max-w-[300px] sm:max-w-[354px] text-center relative">
+    
+                <button class="absolute -top-[10px] -right-[10px] close_btn cursor-pointer">
+                    <img src="assets/img/icons/cancel.png" alt="">
+                </button>
+    
+    
+                <p class="font-space text-[14px] -tracking-[0.15463px] leading-[18px] font-medium text-[#000000B2] mb-[31px]">
+                    Thanks For Your Email
+                </p>
+                <div class="max-w-[130px] mx-auto">
+                    <img src="assets/img/thumbs/thank-you.png" alt="" class="w-full">
+                </div>
+                <h2 class="font-space font-bold text-xl leading-[140%] tracking-[-0.03em] text-[#000] mt-[37px]">
+                    We Will Notify You When We
+                        Get Launched!
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!--======== Header Area Start =========-->
+    <header class="header py-5 border-b-[0.864px] border-[#E9EDF440]">
+        <div class="container ">
+            <div class="flex items-center justify-center sm:justify-between flex-wrap md:flex-nowrap gap-5 md:gap-0">
+                <div class="header_logo ">
+                    <a href="#" class="flex items-center gap-[10px] cursor-pointer">
+                        <img src="assets/img/logos/Logo-icon.png" alt="" class="w-[32px] h-[32px] max-w-full">
+                        <span class="text-white">Leverage.ViP</span>
+                    </a>
+                </div>
+                <div class="header_btn">
+                    <a href="#" class="inline-block font-bold font-space text-[14px] sm:text-base  text-black py-[11px] sm:py-[15px] px-6 transition ease-in-out delay-300 bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  rounded-[5px] cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0% w-max">
+                        Notify me when launched
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--======== Header Area End =========-->
+
+
+    <!--======== Main Area Start =========-->
+    <main class="main overflow-hidden">
+
+        <!--======== Hero Area Start =========-->
+        <section class="hero-area relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[48%] -top-[700px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[200px] -right-[600px]" >
+
+            <div class="container">
+                <!-- parent div  -->
+                <div class="">
+                    <!-- content div  -->
+                    <div class="relative z-10">
+                        <h1 class="font-space font-bold text-white text-[24px] md:text-[32px] lg:text-[36px] xl:text-[45px] -tracking-[0.03em]  text-center lg:text-left mx-auto lg:mx-0 lg:max-w-[420px] xl:max-w-[528px] w-full not-italic pt-[60px] md:pt-[80px] lg:pt-[100px] xl:pt-[164px]">
+                            The global community 
+                            of high-growth proptech founders & CEOs
+                        </h1>
+                        <p class="text-[#909AA8] font-manrope font-medium text-[14px] pt-5 lg:pt-6 pb-10 text-center lg:text-left mx-auto lg:mx-0">
+                            invite-only global community
+                        </p>
+
+                        <!-- buttons div and counts the number -->
+                        <div class="flex flex-col lg:flex-row pb-10 md:pb-14 lg:pb-20 ">
+                            <div class="hero_btns flex items-center justify-center lg:justify-normal lg:items-start gap-4 md:gap-[10px] mr-0 lg:mr-[40px] xl:mr-[87px] flex-wrap">
+                                <input type="email" class="inline-block border-[0.5px] border-white rounded-[10px] text-white placeholder:text-white placeholder:font-manrope placeholder:font-normal placeholder:text-xs pt-[10px] pb-[12px] pl-4 pr-2 max-w-[218px] w-full bg-transparent outline-none" placeholder="you@domain.com">
+                                
+                                <!-- open btn  -->
+                                <a href="#" class="inline-block font-space font-bold text-xs text-black py-[15px] px-9 sm:px-6 transition ease-in-out delay-300 bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% rounded-[6px] cursor-pointer  hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0% open_btn">
+                                    Notify when launched
+                                </a>
+                            </div>
+                            <div class="hidden lg:inline-block total_users border border-white rounded-[10px] max-w-[200px] min-h-[200px] w-full pt-3 pl-4 ">
+                                <div>
+                                    <span class="inline-block w-[10px] h-[10px] bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% rounded-full"></span>
+                                    <span class="inline-block w-[10px] h-[10px] bg-white rounded-full ml-[7px]"></span>
+                                </div>
+                                <h2 class="font-space font-bold not-italic text-[30px] bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% bg-clip-text text-transparent ">
+                                    411,891k
+                                </h2>
+                                <p class="font-manrope not-italic font-normal text-lg text-white">
+                                    Total users
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- scroll arrow down  -->
+                        <div class="flex items-center justify-center lg:justify-normal gap-4 max-w-[135px] mx-auto lg:mx-0 w-full">
+                            <div class="flex items-center justify-center rounded-full w-[60px] h-[60px] border-[1.3399px] border-white shrink-0">
+                                <img src="assets/img/icons/Arrow.svg" alt="">
+                            </div>
+                            <p class="not-italic text-sm text-white font-space font-normal">
+                                Scroll to explore
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <img src="assets/img/thumbs/hero_thumb.png" alt="" class="absolute right-0 top-0 bottom-0 lg:max-w-[560px] xl:max-w-[730px] w-full -z-[2px] cursor-pointer">
+                        <button class="absolute lg:right-[250px] lg:top-[350px] xl:right-[300px] xl:top-[452px] cursor-pointer z-10">
+                            <img src="assets/img/icons/Play_icon.png" alt="" class="w-[42px] ">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== Hero Area End =========-->
+
+
+        <!--======== company logo Area Start =========-->
+        <section class="py-[80px] lg:py-[107px]">
+            <div class="container">
+                <div class="flex items-center justify-center lg:justify-between flex-wrap gap-6 md:gap-5 lg:gap-0">
+                    <div class="max-w-[72px]">
+                        <img src="assets/img/logos/c-1.png" alt="" class="w-full">
+                    </div>
+                    <div class="max-w-[148px]">
+                        <img src="assets/img/logos/c-2.png" alt="" class="w-full">
+                    </div>
+                    <div class=" max-w-[235px]">
+                        <img src="assets/img/logos/company-3.png" alt="" class="w-full" style="filter: brightness(100%) invert(100);">
+                    </div>
+                    <div class="max-w-[262px] grayscale ">
+                        <img src="assets/img/logos/c-4.png" alt="" class="w-full"> 
+                    </div>
+                    <div class="max-w-[108px]">
+                        <img src="assets/img/logos/company-5.png" alt="" class="w-full" style="filter: brightness(100%) invert(100);">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== company logo Area End =========-->
+
+        <!--======== what is leverage  Area Start =========-->
+        <section class="mb-[60px] md:pb-[107px]">
+            <div class="container">
+                <div class="flex relative mx-auto lg:-ml-[160px] flex-wrap lg:flex-nowrap">
+                    <div class="max-w-[240px] md:max-w-[320px] lg:max-w-[460px] mx-auto lg:mx-0 mb-8 md:mb-6 lg:mb-0">
+                        <img src="assets/img/thumbs/what-is-leverage.png" alt="" class="w-full">
+                    </div>
+                    <div class="lg:ml-[95px]">
+                        <h2 class="not-italic text-white text-2xl md:text-3xl lg:text-4xl font-space font-bold leading-[140%]  text-center lg:text-left">
+                            First Things First <br>
+                            What is Leverage?
+                        </h2>
+                        <p class="my-[30px] text-[#909AA8CC] font-manrope font-medium text-base lg:max-w-[571px] w-full text-center lg:text-left">
+                            LeverageVIP is an invite-only community of founders and CEOs from the proptech industry that offers peer-support to grow and thrive your proptech business.In business,
+                            <br> <br>
+                            the power of mentors are overrated and the power of peers are underrated. In Leverage, each member commits to bring their superpowers to add meaningful value to other members. Running your business is a lonely job and having a safe space to openly share your challenges and get support is extremely valuable
+                        </p>
+                        <div class="text-center lg:text-left">
+                            <a href="#" class="inline-block font-space text-black py-[15px] px-[25px] transition ease-in-out delay-300 bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  rounded-[5px] text-base font-bold cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0% ">
+                                Notify  when launched
+                            </a>
+                        </div>
+
+                        <div class="flex mt-[62px] items-center justify-center lg:justify-between gap-8 md:gap-12 lg:gap-0 flex-wrap lg:max-w-[610px] w-full">
+                            <div>
+                                <h3 class="text-white font-space font-bold not-italic text-[36px] md:text-[56px] leading-[60px]">200+</h3>
+                                <p class="text-[#6F7786] text-lg font-manrope font-normal">Founders</p>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-space font-bold not-italic text-[36px] md:text-[56px] leading-[60px]">130</h3>
+                                <p class="text-[#6F7786] text-lg font-manrope font-normal">Startups</p>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-space font-bold not-italic text-[36px] md:text-[56px] leading-[60px]">350+</h3>
+                                <p class="text-[#6F7786] text-lg font-manrope font-normal">Products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== what is leverage  Area End =========-->
+
+        <!--======== Power Area Start =========-->
+        <section class="power mb-[60px] md:pb-[107px] relative" id="power" >
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[48%] -top-[700px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[200px] -right-[730px]">
+            <div class="container">
+                <h2 class="font-space not-italic font-normal text-[26px] md:text-3xl lg:text-4xl text-center max-w-[373px] w-full mx-auto text-white mb-[59px]">
+                    Leverage is <span class="font-[700]">powerful, helpful and fun</span>
+                </h2>
+                <div class="flex items-start justify-center lg:justify-between gap-4 sm:gap-6 md:gap-[40px] lg:gap-[89px] flex-wrap lg:flex-nowrap">
+                    <!-- single card  1-->
+                    <div class="power_card w-full md:w-[40%] lg:w-1/3 mb-7">
+                        <!-- card image  -->
+                        <div class="power_card_img ">
+                            <img src="assets/img/thumbs/Card-1.png" alt="">
+                        </div>
+                        <!-- card body  -->
+                        <div >
+                            <h3 class="text-white text-[22px] font-bold font-space not-italic max-w-[285px] w-full leading-[120%] mt-8 mx-auto md:mx-0 text-center md:text-left">
+                                Blow up your private network on globallly
+                            </h3>
+                            <p class="text-[#909AA8CC] text-base font-medium not-italic font-manrope max-w-[340px] md:max-w-[275px] w-full mt-[11px] mx-auto md:mx-0 text-center md:text-left">
+                                It is a long established fact that a reader will be.It is a long esd fact that a reader will be.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- single card 2 -->
+                    <div class="power_card w-full md:w-[40%] lg:w-1/3 mb-7">
+                        <!-- card image  -->
+                        <div class="power_card_img">
+                            <img src="assets/img/thumbs/Card-2.png" alt="">
+                        </div>
+                        <!-- card body  -->
+                        <div >
+                            <h3 class="text-white text-[22px] font-bold font-space not-italic max-w-[225px] w-full leading-[120%] mt-8 mx-auto md:mx-0 text-center md:text-left">
+                                Exchange superpowers
+                            </h3>
+                            <p class="text-[#909AA8CC] text-base font-medium not-italic font-manrope max-w-[340px] md:max-w-[275px] w-full mt-[11px] mx-auto md:mx-0 text-center md:text-left">
+                                Bring your superpowers to add meanignful value to other members
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- single card 3 -->
+                    <div class="power_card w-full md:w-1/2 lg:w-1/3">
+                        <!-- card image  -->
+                        <div class="power_card_img">
+                            <img src="assets/img/thumbs/Card-3.png" alt="">
+                        </div>
+                        <!-- card body  -->
+                        <div >
+                            <h3 class="text-white text-[22px] font-bold font-space not-italic max-w-[225px] w-full leading-[120%] mt-8 mx-auto md:mx-0 text-center md:text-left">
+                                Accelerate your growth
+                            </h3>
+                            <p class="text-[#909AA8CC] text-base font-medium not-italic font-manrope max-w-[340px] md:max-w-[275px] w-full mt-[11px] mx-auto md:mx-0 text-center md:text-left">
+                                It is a long established fact that a reader will be.It is a long esd fact that a reader will be.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== Power Area End =========-->
+
+        <!-- ======== rocket boosters section start ========= -->
+        <section class="mb-[60px] md:mb-[127px]">
+            <div class="container">
+                <h6 class="text-base lg:text-lg mb-[10px] lg:mb-[11px] font-bold text-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% bg-clip-text text-transparent ">
+                    Less talking, more walking
+                </h6>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl mb-5 md:mb-[35px] lg:mb-[61px] text-center font-space font-normal text-white" >
+                    Get rocket boosters for your <br class="hidden lg:block" />
+                    <span class="font-[700]">
+                        proptech business
+                    </span>
+                </h2>
+
+                <!-- rocket card wrapper  -->
+                <div class="flex flex-wrap gap-[23px] items-center justify-center">
+                    <!-- single rocket card  1 -->
+                    <div class="group w-[260px] pt-[34px] px-[30px] pb-[49px] rounded-[10px] shadow-[0_24px_74px_rgba(0,0,0,0.15)] bg-[#1A1A1A] transition delay-100 ease-in  hover:rocket_card_hover ">
+                        <div class="w-[50px] h-[50px] text-white text-[20px] font-space font-bold rounded-full flex items-center justify-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% transition delay-100 ease-in group-hover:bg-gradient-to-r group-hover:from-[#000] group-hover:from-0% group-hover:to-[#000] group-hover:to-100% ">
+                            01
+                        </div>
+                        <h5 class="text-base lg:text-xl mt-[55px] mb-[10px] text-white font-space font-bold transition  group-hover:text-[#000]">
+                            Connections
+                        </h5>
+                        <p class="font-manrope font-medium text-base text-[#909AA8CC]  transition  group-hover:text-[#000]">
+                            It is a long established fact that a reader will be.
+                        </p>
+                    </div>
+                    <!-- single rocket card 2 -->
+                    <div class="group w-[260px] pt-[34px] px-[30px] pb-[49px] rounded-[10px] shadow-[0_24px_74px_rgba(0,0,0,0.15)] bg-[#1A1A1A] transition delay-100 ease-in hover:rocket_card_hover ">
+                        <div class="w-[50px] h-[50px] text-white text-[20px] font-space font-bold rounded-full flex items-center justify-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% transition delay-100 ease-in group-hover:bg-gradient-to-r group-hover:from-[#000] group-hover:from-0% group-hover:to-[#000] group-hover:to-100% ">
+                            02
+                        </div>
+                        <h5 class="text-base lg:text-xl mt-[55px] mb-[10px] text-white font-space font-bold transition delay-100 ease-in group-hover:text-[#000]">
+                            Peer support
+                        </h5>
+                        <p class="font-manrope font-medium text-base text-[#909AA8CC]  transition delay-100 ease-in group-hover:text-[#000]">
+                            It is a long established fact that a reader will be.
+                        </p>
+                    </div>
+                    <!-- single rocket card 3 -->
+                    <div class="group w-[260px] pt-[34px] px-[30px] pb-[49px] rounded-[10px] shadow-[0_24px_74px_rgba(0,0,0,0.15)] bg-[#1A1A1A] transition delay-100 ease-in hover:rocket_card_hover ">
+                        <div class="w-[50px] h-[50px] text-white text-[20px] font-space font-bold rounded-full flex items-center justify-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% transition delay-100 ease-in   group-hover:bg-gradient-to-r group-hover:from-[#000] group-hover:from-0% group-hover:to-[#000] group-hover:to-100% ">
+                            03
+                        </div>
+                        <h5 class="text-base lg:text-xl mt-[55px] mb-[10px] text-white font-space font-bold transition delay-100 ease-in group-hover:text-[#000]">
+                            Mentorships
+                        </h5>
+                        <p class="font-manrope font-medium text-base text-[#909AA8CC]  transition delay-100 ease-in group-hover:text-[#000]">
+                            It is a long established fact that a reader will be.
+                        </p>
+                    </div>
+                    <!-- single rocket card 4 -->
+                    <div class="group w-[260px] pt-[34px] px-[30px] pb-[49px] rounded-[10px] shadow-[0_24px_74px_rgba(0,0,0,0.15)] bg-[#1A1A1A] transition delay-100 ease-in hover:rocket_card_hover ">
+                        <div class="w-[50px] h-[50px] text-white text-[20px] font-space font-bold rounded-full flex items-center justify-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% transition delay-100 ease-in   group-hover:bg-gradient-to-r group-hover:from-[#000] group-hover:from-0% group-hover:to-[#000] group-hover:to-100% ">
+                            04
+                        </div>
+                        <h5 class="text-base lg:text-xl mt-[55px] mb-[10px] text-white font-space font-bold transition delay-100 ease-in group-hover:text-[#000]">
+                            Exclusive Perks
+                        </h5>
+                        <p class="font-manrope font-medium text-base text-[#909AA8CC]  transition delay-100 ease-in group-hover:text-[#000]">
+                            It is a long established fact that a reader will be.
+                        </p>
+                    </div>
+                    <!-- single rocket card 5 -->
+                    <div class="group w-[260px] pt-[34px] px-[30px] pb-[49px] rounded-[10px] shadow-[0_24px_74px_rgba(0,0,0,0.15)] bg-[#1A1A1A] transition delay-100 ease-in hover:rocket_card_hover ">
+                        <div class="w-[50px] h-[50px] text-white text-[20px] font-space font-bold rounded-full flex items-center justify-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% transition delay-100 ease-in   group-hover:bg-gradient-to-r group-hover:from-[#000] group-hover:from-0% group-hover:to-[#000] group-hover:to-100% ">
+                            05
+                        </div>
+                        <h5 class="text-base lg:text-xl mt-[55px] mb-[10px] text-white font-space font-bold transition delay-100 ease-in group-hover:text-[#000]">
+                            Founder intros
+                        </h5>
+                        <p class="font-manrope font-medium text-base text-[#909AA8CC]  transition delay-100 ease-in group-hover:text-[#000]">
+                            It is a long established fact that a reader will be.
+                        </p>
+                    </div>
+                    <!-- single rocket card 6 -->
+                    <div class="group w-[260px] pt-[34px] px-[30px] pb-[49px] rounded-[10px] shadow-[0_24px_74px_rgba(0,0,0,0.15)] bg-[#1A1A1A] transition delay-100 ease-in hover:rocket_card_hover ">
+                        <div class="w-[50px] h-[50px] text-white text-[20px] font-space font-bold rounded-full flex items-center justify-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% transition delay-100 ease-in   group-hover:bg-gradient-to-r group-hover:from-[#000] group-hover:from-0% group-hover:to-[#000] group-hover:to-100% ">
+                            06
+                        </div>
+                        <h5 class="text-base lg:text-xl mt-[55px] mb-[10px] text-white font-space font-bold transition delay-100 ease-in group-hover:text-[#000]">
+                            Expert Helps
+                        </h5>
+                        <p class="font-manrope font-medium text-base text-[#909AA8CC]  transition delay-100 ease-in group-hover:text-[#000]">
+                            It is a long established fact that a reader will be.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======== rocket boosters section End ========= -->
+
+
+        <!--======== leverage operate Area Start =========-->
+        <section class="mb-[60px] md:mb-[107px] relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[42%] -top-[700px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[50px] -right-[750px]">
+            <div class="container">
+                <!----------- section title Part START ------------------->
+
+                <h2 class="font-space not-italic leading-[30px] md:leading-normal text-[26px] md:text-3xl lg:text-4xl font-normal text-center max-w-[420px] w-full mx-auto mb-7 text-white">
+                    How does Leverage operate?
+                </h2>
+                <h4 class="font-manrope not-italic text-base font-medium text-center max-w-[592px] w-full mx-auto  text-[#909AA8CC] mb-20">
+                    Lorem ipsum dolor sit amet consectetur. Suspendisse ipsum placerat id ipsum mauris blandit sit condimentum volutpat. Lorem
+                </h4>
+                <!----------- section title Part END ------------------->
+
+                <!----------------- timeline are start from here  ------------------>
+                <!-- component -->
+                <div class=" mx-auto w-full h-full">
+                    <div class="relative wrap overflow-hidden h-full">
+                        <div class="hidden lg:block absolute h-[1242px] w-[2px]" style="left: calc(50% - 0px/2 + 63px);background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50.52%, rgba(255, 255, 255, 0) 100%);"></div>
+                        <!-- 1st row  -->
+                        <div class="relative">
+                            <div class="hidden lg:flex lg:items-center w-[42px] h-[42px] rounded-full  bg-[#F6E7D3] absolute z-20 top-[100px]" style="left: calc(50% - 0px/2 + 63px); transform: translateX(-50%);">
+                                <span class="mx-auto font-semibold text-lg text-black inline-block">1</span>
+                            </div>
+                            <div class="flex flex-wrap items-center mb-10 md:mb-[69px]">
+                                <!-- left-side  -->
+                                <div class="w-full md:w-1/2 order-2 md:order-1">
+                                    <div class="max-w-[493px] text-center md:text-left mx-auto md:mx-0">
+                                        <h4 class="text-2xl text-white font-space font-normal mb-[22px]" >
+                                            Monthly Hives
+                                        </h4>
+                                        <p class="font-poppins text-base text-[#909AA8CC] font-normal" >
+                                            A monthly meeting of hives consisting of 7 founders is moderated by an experienced facilitator.  Advice and critical feedback is shared to help accelerate your business growth.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- right-side  -->
+                                <div class="w-full md:w-1/2 order-1 md:order-2 mb-6 md:mb-0">
+                                    <div class="max-w-[335px] mx-auto md:mx-0 md:ml-auto lg:ml-auto">
+                                        <div class="relative">
+                                            <img src="assets/img/thumbs/Timeline-1.png" alt="" />
+                                            <div class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[60px] h-[60px] gradient_bg rounded-full flex items-center justify-center">
+                                                <img src="assets/img/icons/vedeo_btn.png" alt="" class=" w-[20px]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2nd row  -->
+                        <div class="relative">
+                            <div class="hidden lg:flex lg:items-center w-[42px] h-[42px] rounded-full  bg-[#F6E7D3] absolute z-20 top-1/2" style="left: calc(50% - 0px/2 + 63px); transform: translateX(-50%);">
+                                <span class=" mx-auto font-semibold text-lg text-black inline-block">2</span>
+                            </div>
+                            <div class="flex flex-wrap items-center mb-10 md:mb-[69px] justify-between">
+
+                                <!-- left-side  -->
+                                <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                    <div class="max-w-[335px] md:max-w-[525px] mx-auto md:mx-0 md:mr-auto">
+                                        <div class="">
+                                            <img src="assets/img/thumbs/Timeline-2.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- right-side  -->
+                                <div class="w-full md:w-1/2 ">
+                                    <div class="max-w-[493px] md:max-w-[335px] w-full mx-auto md:mx-0 md:ml-auto text-center md:text-left">
+                                        <h4 class="text-2xl text-white font-space font-bold mb-[17px]" >
+                                            Virtual Engagement
+                                        </h4>
+                                        <p class="font-poppins text-base text-[#909AA8CC] font-normal" >
+                                            Part of a virtual community of engaged founders who provide helpful advice, a dedicated digital concierge, and a weekly newsletter highlighting noteworthy updates from the members.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3rd row  -->
+                        <div class="relative">
+                            <div class="hidden lg:flex lg:items-center w-[42px] h-[42px] rounded-full  bg-[#F6E7D3] absolute z-20 top-[100px]" style="left: calc(50% - 0px/2 + 63px); transform: translateX(-50%);">
+                                <span class="mx-auto font-semibold text-lg text-black inline-block">3</span>
+                            </div>
+                            <div class="flex flex-wrap items-center mb-10 md:mb-[69px]">
+                                <!-- left-side  -->
+                                <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                                    <div class="max-w-[493px] mx-auto md:mx-0 ">
+                                        <h4 class="text-2xl text-white font-space font-normal mb-[22px]" >
+                                            In-person meetups
+                                        </h4>
+                                        <p class="font-poppins text-base text-[#909AA8CC] font-normal mx-auto md:mx-0 max-w-[429px]" >
+                                            Our in-person event strategy is focused around three pillars: quarterly member hangouts, one annual retreats led by facilitators.
+                                        </p>
+                                    </div>
+                                </div>
+              
+                                <!-- right-side  -->
+              
+                                <div class="w-full md:w-1/2 order-1 md:order-2 mb-6 md:mb-0">
+                                    <div class="max-w-[335px] mx-auto md:mx-0 md:ml-auto">
+                                        <div class="">
+                                            <img src="assets/img/thumbs/Timeline-3.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4th row  -->
+                        <div class="relative">
+                            <div class="hidden lg:flex lg:items-center w-[42px] h-[42px] rounded-full  bg-[#F6E7D3] absolute z-20 top-1/2" style="left: calc(50% - 0px/2 + 63px); transform: translateX(-50%);">
+                                <span class=" mx-auto font-semibold text-lg text-black inline-block">4</span>
+                            </div>
+                            <div class="flex flex-wrap items-center">
+
+                                <!-- left-side  -->
+                                <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                    <div class="max-w-[335px] md:max-w-[493px] mx-auto md:mx-0 md:mr-auto">
+                                        <div class="">
+                                            <img src="assets/img/thumbs/Timeline-4.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- right-side  -->
+                                <div class="w-full md:w-1/2 text-center md:text-left">
+                                    <div class="max-w-[493px] md:max-w-[335px] lg:max-w-[370px] w-full mx-auto md:mx-0 md:ml-auto lg:ml-auto">
+                                        <h4 class="text-2xl text-white font-space font-bold mb-[17px] mx-auto md:mx-0 max-w-[293px]" >
+                                            Business growth series and education
+                                        </h4>
+                                        <p class="font-poppins text-base text-[#909AA8CC] font-normal ">
+                                            We understand the importance of accessing the best and brightest. So, we host unique workshops and bring in hard to reach experts across a variety of topics.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------- timeline End ---------------------->
+            </div>
+        </section>
+        <!--======== leverage operate Area End =========-->
+
+        <!--======== perfect place  Area Start =========-->
+        <section class="mb-[60px] md:mb-[107px] relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[40%] -top-[700px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[0px] -right-[750px]">
+            <div class="container">
+                <!----------- section title Part Start ------------------->
+                <h2 class="font-space not-italic text-2xl md:text-[32px] lg:text-4xl leading-[30px] md:leading-normal font-bold text-center max-w-[431px] w-full mx-auto mb-7 text-white ">
+                    The perfect place to learn and grow
+                </h2>
+                <h4 class="font-manrope not-italic text-base font-medium text-center max-w-[558px] w-full mx-auto  text-[#909AA8CC] mb-[43px]">
+                    Lorem ipsum dolor sit amet consectetur. Suspendisse ipsum placerat id ipsum mauris blandit sit condimentum volutpat. Lorem
+                </h4>
+                <!----------- section title Part End --------------------------->
+
+                <!--------------- learn and grow card start from here  ----------------->
+                <div class="flex items-center gap-7 flex-wrap md:flex-nowrap lg:flex-nowrap">
+                    <!-- Single card  1-->
+                    <div class="md:mb-0 mb-6 text-center md:text-left">
+                        <div class="card_thumb">
+                            <img src="assets/img/thumbs/Learn-1.png" alt="" />
+                        </div>
+                        <!-- --card_btn--  -->
+                        <button class="font-space text-base leading-5 px-11 py-2 mt-[27px] mb-[23px] rounded-[11px] text-[#fff] bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0% transition delay-150 ease-in">
+                            Live sessions
+                        </button>
+                        <p class="text-[18px] md:text-[20px] lg:text-2xl text-white font-space font-bold max-w-[329px] w-full mx-auto md:mx-0" >
+                            Lorem ipsum dolor sit amet me consectetur.
+                        </p>
+                    </div>
+                     <!-- Single card 2 -->
+                     <div class="md:mb-0 mb-6 text-center md:text-left">
+                        <div class="card_thumb">
+                            <img src="assets/img/thumbs/Learn-2.png" alt="" />
+                        </div>
+                        <!-- --card_btn--  -->
+                        <button class="font-space text-base leading-5 px-[51px] py-2 mt-[27px] mb-[23px] rounded-[11px] text-[#fff] bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0% transition delay-150 ease-in">
+                            Workshops
+                        </button>
+                        <p class="text-[18px] md:text-[20px] lg:text-2xl text-white font-space font-bold max-w-[329px] w-full mx-auto md-mx-0" >
+                            Lorem ipsum dolor sit amet me consectetur.
+                        </p>
+                    </div>
+                     <!-- Single card  3-->
+                     <div class="text-center md:text-left">
+                        <div class="card_thumb">
+                            <img src="assets/img/thumbs/Learn-3.png" alt="" />
+                        </div>
+                        <!-- --card_btn--  -->
+                        <button class="font-space text-base leading-5 px-11 py-2 mt-[27px] mb-[23px] rounded-[11px] text-[#fff] bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0% transition delay-150 ease-in">
+                            Mentorships
+                        </button>
+                        <p class="text-[18px] md:text-[20px] lg:text-2xl text-white font-space font-bold max-w-[329px] w-full mx-auto md:mx-0" >
+                            Lorem ipsum dolor sit amet me consectetur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== perfect place  Area End =========-->
+
+        <!--======== proffesional carrousel Area Start =========-->
+        <section class="mb-[60px] md:mb-[177px]">
+            <div class="container text-center lg:text-left">
+                <h6 class="text-base lg:text-lg font-bold bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% bg-clip-text text-transparent ">
+                    The Professionals
+                </h6>
+                <h2 class="font-space not-italic text-[26px] md:text-3xl lg:text-4xl font-bold mt-[10px] md:mt-[19px] mb-[16px] md:mb-[18px] lg:mb-[22px] text-white">
+                    Proptech's needle movers
+                </h2>
+                <h4 class="font-poppins not-italic text-base font-normal max-w-[486px] w-full text-[#909AA8CC] mb-[62px] mx-auto lg:mx-0">
+                    Connect, learn and grow with some of the best founders and CEOs from the industry.
+                </h4>
+            </div>
+
+
+            <!-------------- carousel area start from here  --------------->
+            <!-- slider wrapper div  -->
+            <div  class="mb-[20px] md:mb-[30px] lg:mb-[54px] proptech_slider_wrapper owl-carousel"> 
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thumb  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-1.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Samuel Jones
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out " 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-2.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Jessica Hill
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-3.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Elon Musk
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-1.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Samuel Jones
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-2.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Jessica Hill
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-3.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Elon Musk
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2nd carousel part  -->
+            <div  class="proptech_slider_wrapper owl-carousel"> 
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-4.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Ali Ahmed
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-5.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Martin Rhodes
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-6.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Arpit Jain
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-7.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Samuel Jones
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-2.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Jessica Hill
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- single card  -->
+                <div class="group p-6 rounded-[25px] max-w-[333px] border border-[#FFFFFF33]  hover:bg-[#F6E7D3] transition delay-100 ease-in-out cursor-pointer">
+                    <!-- card_thum  -->
+                    <div class="h-[90px] w-[90px] rounded-full overflow-hidden">
+                        <img
+                            src="assets/img/icons/face-3.png"
+                            class="w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <div class="max-w-[285px]">
+                        <!-- card_title -->
+                        <h6 class="text-[18px] md:text-[20px] lg:text-[26px] mt-3 lg:mt-5 mb-3 font-bold text-white group-hover:text-[#000000] transition delay-100 ease-in-out" >
+                            Elon Musk
+                        </h6>
+                        <!-- card_body -->
+                        <div class="font-poppins font-normal  text-sm md:text-base text-[#909AA8CC] group-hover:text-[#000000B2] transition delay-100 ease-in-out">
+                            It is a long established fact that a reader will be.It is a long esd fact that a reader will be.It is a long 
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center mt-5 lg:mt-8 h-[46px] w-[46px] rounded-full border border-[#BFCCD6] group-hover:border-[#000000] transition delay-100 ease-in-out " >
+                        <img  
+                            src="assets/img/icons/carrousel_arrow.svg" 
+                            class="h-[14px] w-[14px] group-hover:filter group-hover:brightness-0 transition delay-100 ease-in-out" 
+                            alt=""
+                        />
+                    </a>
+                </div>
+            </div>
+
+
+        </section>
+        <!--======== proffesional carrousel Area End =========-->
+
+        <!--======== Repititive Area Start =========-->
+        <section class="mb-[60px] md:mb-[86px] relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[42%] -top-[720px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[0px] -right-[700px]">
+            <div class="container">
+                <!-- parent wrapper  -->
+                <div class="flex items-center justify-center md:justify-between flex-wrap md:flex-nowrapwrap">
+                    <!-- left part start -->
+                    <div class="md:w-1/2 mb-5 sm:mb-0">
+                        <h2 class="max-w-[399px] font-space font-medium text-2xl sm:text-[31px] leading-[110%] text-white text-center md:text-left">
+                            This is becoming repititive. We can let it go.
+                        </h2>
+                        <!-- single items  -->
+                        <div class="flex items-center justify-center md:justify-normal gap-[15px] md:gap-[21px] mb-5 mt-[42px]">
+                            <div class="max-w-[65px]">
+                                <img src="assets/img/icons/circle_icon-1.png" alt="" class="w-full">
+                            </div>
+                            <div class="max-w-[256px]">
+                                <h4 class="font-space font-bold text-white text-lg mb-[11px] ">
+                                    Mentorships
+                                </h4>
+                                <p class="font-space font-normal text-base leading-[20px] text-[#909AA8CC]">
+                                    It is a long established fact that a reader will be It is a fine
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single items  -->
+                        <div class="flex items-center justify-center md:justify-normal gap-[15px] md:gap-[21px] mb-5">
+                            <div class="max-w-[65px]">
+                                <img src="assets/img/icons/circle_icon-2.png" alt="" class="w-full">
+                            </div>
+                            <div class="max-w-[256px]">
+                                <h4 class="font-space font-bold text-white text-lg mb-[11px] ">
+                                    Powerful connections
+                                </h4>
+                                <p class="font-space font-normal text-base leading-[20px] text-[#909AA8CC]">
+                                    It is a long established fact that a reader will be It is a fine
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single items  -->
+                        <div class="flex items-center justify-center md:justify-normal gap-[15px] md:gap-[21px]">
+                            <div class="max-w-[65px]">
+                                <img src="assets/img/icons/circle_icon-3.png" alt="" class="w-full">
+                            </div>
+                            <div class="max-w-[256px]">
+                                <h4 class="font-space font-bold text-white text-lg mb-[11px]">
+                                    Investor relations
+                                </h4>
+                                <p class="font-space font-normal text-base leading-[20px] text-[#909AA8CC]">
+                                    It is a long established fact that a reader will be It is a fine
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- left part end -->
+
+                    <!-- right part start  -->
+                    <div class=" md:w-1/2 mt-8 md:mt-0">
+                        <img src="assets/img/thumbs/go-bg.png" alt="" class="absolute right-0 -top-[50px] lg:w-[650px] xl:w-[750px] hidden lg:block">
+                        <!-- community right  -->
+                        <div  class="flex items-center justify-center md:justify-end gap-5 flex-wrap lg:flex-nowrap"  >
+                            <!-- --single card 1--  -->
+                            <div class="w-[287px] px-[25px] pt-[27px] pb-[31px] rounded-[20px] bg-[#F6E7D3] relative z-[2]" >
+                                <div class="flex justify-between items-center">
+                                    <div class="flex gap-[11px] items-center">
+                                        <div class="">
+                                            <img
+                                                class="w-[39px] h-[39px] rounded-full"
+                                                src="assets/img/icons/investor.png"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <h6 class="font-space font-bold text-base text-[#000]" >
+                                            Find an investor
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <!-- Ticket size  -->
+                                <div class="px-[14px] py-[19px] mt-3 rounded-[10px] bg-[#FFFFFF]">
+                                    <div class="flex justify-between">
+                                        <p class="font-space font-normal text-xs text-[#000] ">
+                                            Ticket size
+                                        </p>
+                                        <p class="font-space font-normal text-right text-xs text-[#00000080]">
+                                            Max
+                                        </p>
+                                    </div>
+                                    <div class="w-full h-[24px] my-[11px] rounded-[5px] bg-[#F2F2F2] overflow-hidden">
+                                        <span class="w-[25%] h-full inline-block gradient_bg rounded-[5px]"></span>
+                                    </div>
+
+                                    <div class="flex justify-between">
+                                        <p class="font-space font-bold text-xs text-[#000]" >
+                                            $100K
+                                        </p>
+                                        <p class="font-space font-normal text-xs text-[#00000080] text-right">
+                                            $500M+
+                                        </p>
+                                    </div>
+                                    <p class="mt-[6px] font-space font-normal text-xs text-[#00000080]">
+                                        Seed/Angel
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- -- Single card 2 --  -->
+                            <div class="w-[287px] px-[25px] py-[32px] rounded-[20px] bg-[#F6E7D3] relative z-[2]" >
+                                <div class="flex justify-between items-center">
+                                    <div class="flex gap-[14px] items-start">
+                                        <div class="flex-shrink-0">
+                                            <img
+                                                class="w-[50px]"
+                                                src="assets/img/icons/investor.png"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div>
+                                            <h6 class="font-space font-bold text-base text-[#000] " >
+                                                Find an investor
+                                            </h6>
+                                            <p class="font-poppins font-normal text-sm text-[#00000066] mb-[14px]">
+                                                It is a long established fact that a reader
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- button size  -->
+                                <a href="#" class="w-full font-space py-[12px] text-sm text-[#fff] font-normal rounded-lg bg-[#000000] inline-block text-center transition hover:gradient_bg">
+                                    View Profile
+                                </a>
+                                
+                                <a href="#" class="w-full font-space py-[12px] text-sm text-[#000] font-normal rounded-lg bg-transparent inline-block text-center transition mt-3 border border-[#000] hover:bg-[#000] hover:text-[#fff]">
+                                    Direct Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- right part end  -->
+                </div>
+            </div>
+        </section>
+        <!--======== Repititive Area End =========-->
+
+        <!--======== Workshop Area Start =========-->
+        <section class=" mb-[107px] mt-0 lg:mt-[172px]">
+            <div class="container">
+                <!-- parent wrapper div  -->
+                <div class="flex items-center justify-center gap-[25px] flex-wrap lg:flex-nowrap">
+                    <!-- left part  -->
+                    <div class="max-w-[638px] relative ml-0 lg:-ml-12">
+                        <img src="assets/img/thumbs/Workshop.png" alt="" class="w-full">
+                    </div>
+                    <!-- right part  -->
+                    <div>
+                        <h2 class="max-w-[339px] w-full font-space font-medium text-2xl md:text-[31px] leading-[110%] mb-[19px] text-white  mt-0 md:mt-14 "> 
+                            Workshops from industry experts
+                        </h2>
+                        <p class="font-space font-normal text-base md:text-lg leading-[23px] text-[#909AA8CC] mb-[21px] max-w-[385px] w-full ">
+                            Our workshops sessions are delivered by global experts.
+                        </p>
+                        <div>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <span class="w-[10px] h-[10px] gradient_bg inline-block rounded-full flex-shrink-0"></span>
+                                <p class="font-space font-normal text-base sm:text-lg leading-normal sm:leading-[221%] text-[#909AA8CC]">
+                                    Mastering enterprise sales
+                                </p>
+                            </div>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <span class="w-[10px] h-[10px] gradient_bg inline-block rounded-full flex-shrink-0"></span>
+                                <p class="font-space font-normal text-base sm:text-lg leading-normal sm:leading-[221%] text-[#909AA8CC]">
+                                    Escaping Fundraising Pitfalls
+                                </p>
+                            </div>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <span class="w-[10px] h-[10px] gradient_bg inline-block rounded-full flex-shrink-0"></span>
+                                <p class="font-space font-normal text-base sm:text-lg leading-normal sm:leading-[221%] text-[#909AA8CC]">
+                                    Geographical expansion
+                                </p>
+                            </div>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <span class="w-[10px] h-[10px] gradient_bg inline-block rounded-full flex-shrink-0"></span>
+                                <p class="font-space font-normal text-base sm:text-lg leading-normal sm:leading-[221%] text-[#909AA8CC]">
+                                    Unlocking growth through partnerships
+                                </p>
+                            </div>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <span class="w-[10px] h-[10px] gradient_bg inline-block rounded-full flex-shrink-0"></span>
+                                <p class="font-space font-normal text-base sm:text-lg leading-normal sm:leading-[221%] text-[#909AA8CC]">
+                                    GoToMarket
+                                </p>
+                            </div>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <span class="w-[10px] h-[10px] gradient_bg inline-block rounded-full flex-shrink-0"></span>
+                                <p class="font-space font-normal text-base sm:text-lg leading-normal sm:leading-[221%] text-[#909AA8CC]">
+                                    Leading growing functions for first time founders
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <a href="#" class="inline-block font-space text-white py-[18px] px-8 mt-[31px] transition ease-in-out delay-75 bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  rounded-[5px] text-base leading-4 font-bold cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0%">
+                                Notify  when launched
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== Workshop Area End =========-->
+
+        <!--======== FAQ Area Start =========-->
+        <section class="mb-[107px] relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[47%] -top-[800px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[200px] -right-[740px]">
+            <div class="container">
+                <div class="faq_inner" > 
+                    <h2 class="font-space not-italic font-bold text-2xl md:text-3xl lg:text-4xl text-center text-white mb-[59px]" >
+                        Frequently asked questions
+                    </h2>
+
+                    <!-- faq wrapper  -->
+                    <div class="mx-auto w-[90%] lg:w-full">
+                        <!-- single-faq 1 -->
+                        <div class="tab w-full overflow-hidden rounded-[10px] bg-transparent border border-white mb-[30px]" >
+                            <input
+                                class="absolute opacity-0"
+                                id="tab-multi-one"
+                                type="checkbox"
+                                name="tabs"
+                            />
+                            <label class=" font-space not-italic font-bold text-white text-base md:text-lg lg:text-xl block p-[20px] lg:p-[45px]  cursor-pointer" for="tab-multi-one" >
+                                What is the time investment required for joining this forum?
+                            </label >
+                            <div class="tab-content overflow-hidden leading-normal" >
+                                <p class="font-space font-normal text-base md:text-lg text-[#00000099] bg-[#F6E7D3] pl-5 md:pl-12 pb-14" >
+                                    2-3 hours distraction-free contribution per month. By
+                                    giving more, you receive more.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single-faq 2 -->
+                        <div class="tab w-full overflow-hidden rounded-[10px] bg-transparent border border-white mb-[30px]" >
+                            <input
+                                class="absolute opacity-0"
+                                id="tab-multi-two"
+                                type="checkbox"
+                                name="tabs"
+                            />
+                            <label class=" font-space not-italic font-bold text-white text-base md:text-lg lg:text-xl block p-[20px] lg:p-[45px]  cursor-pointer" for="tab-multi-two" >
+                                How do we account for timezone differences?
+                            </label >
+                            <div class="tab-content overflow-hidden leading-normal" >
+                                <p class="font-space font-normal text-base md:text-lg text-[#00000099] bg-[#F6E7D3] pl-5 md:pl-12 pb-14" >
+                                    2-3 hours distraction-free contribution per month. By
+                                    giving more, you receive more.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single-faq  3 -->
+                        <div class="tab w-full overflow-hidden rounded-[10px] bg-transparent border border-white mb-[30px]" >
+                            <input
+                                class="absolute opacity-0"
+                                id="tab-multi-three"
+                                type="checkbox"
+                                name="tabs"
+                            />
+                            <label class=" font-space not-italic font-bold text-white text-base md:text-lg lg:text-xl block p-[20px] lg:p-[45px]  cursor-pointer" for="tab-multi-three" >
+                                When will Leverage launch?
+                            </label >
+                            <div class="tab-content overflow-hidden leading-normal" >
+                                <p class="font-space font-normal text-base md:text-lg text-[#00000099] bg-[#F6E7D3] pl-5 md:pl-12 pb-14" >
+                                    2-3 hours distraction-free contribution per month. By
+                                    giving more, you receive more.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single-faq  4 -->
+                        <div class="tab w-full overflow-hidden rounded-[10px] bg-transparent border border-white mb-[30px]" >
+                            <input
+                                class="absolute opacity-0"
+                                id="tab-multi-four"
+                                type="checkbox"
+                                name="tabs"
+                            />
+                            <label class=" font-space not-italic font-bold text-white text-base md:text-lg lg:text-xl block p-[20px] lg:p-[45px]  cursor-pointer" for="tab-multi-four" >
+                                How are the monthly meetups conducted?
+                            </label >
+                            <div class="tab-content overflow-hidden leading-normal" >
+                                <p class="font-space font-normal text-base md:text-lg text-[#00000099] bg-[#F6E7D3] pl-5 md:pl-12 pb-14" >
+                                    2-3 hours distraction-free contribution per month. By
+                                    giving more, you receive more.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== FAQ Area End =========-->
+
+        <!--======== Membership Area Start =========-->
+        <section class="mb-[60px] md:mb-[107px]">
+            <div class="container">
+                <!-- parent wrapper div  -->
+                <div class="flex items-center justify-center lg:gap-[69px] flex-wrap lg:flex-nowrap">
+                    <!-- left part  -->
+                    <div class="max-w-[460px] text-center lg:text-left lg:mr-auto order-2 lg:order-1">
+                        <h2 class="max-w-[345px] w-full font-space font-medium text-2xl md:text-[31px] leading-[110%] mb-[32px] text-white mx-auto lg:mx-0"> 
+                            Qualifying criteria for Leverage membership
+                        </h2>
+                        <p class="font-space font-normal text-base md:text-lg leading-[23px] text-[#909AA8CC] mb-[40px] w-full">
+                            The minimum requirement of at least $500K in revenue or $500K in funding or a previous exit. Most members are tech startups in real estate and you must be a founder or CEO.
+                            <br><br>
+                            Your 8-person Core group will have similar sized businesses in similar industries. <br> Each applicant is interviewed and highly vetted. To keep Leverage intimate we're limiting the community to only 50 core groups.
+                        </p>
+
+                        <a href="#" class="inline-block font-space text-white py-[18px] px-8 transition ease-in-out delay-75 bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  rounded-[5px] text-base leading-4 font-bold cursor-pointer hover:bg-gradient-to-r hover:from-[#CDB45F] hover:from-100% hover:to-[#B08E35] hover:to-0%">
+                            Notify  when launched
+                        </a>
+                    </div>
+                    <!-- Right part  -->
+                    <div class="max-w-[638px] relative mr-0 lg:-mr-16 order-1 lg:order-2 mb-8 lg:mb-0">
+                        <img src="assets/img/thumbs/Membership.png" alt="" class="w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== Membership Area End =========-->
+
+        <!--======== MAP Area Start =========-->
+        <section class="mb-[60px] lg:mb-[107px] relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[50%] -top-[720px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[150px] -right-[750px]">
+            <div class="container">
+                <!----------- section title Part START ------------------->
+
+                <h2 class="font-space not-italic text-2xl md:text-4xl font-normal leading-[110%] text-center mb-8 text-white">
+                    Which geos are <br> represented in Leverage?
+                </h2>
+                <h4 class="font-space not-italic text-base font-medium text-center max-w-[554px] w-full mx-auto  text-[#909AA8CC] mb-[61px]">
+                    Is a long established fact that a reader will be distracted by the readable content.
+                </h4>
+                <!----------- section title Part END ------------------->
+
+                <!-- map wrapper  -->
+                <div class="flex items-center justify-between lg:flex-nowrap flex-wrap">
+                    <!-- ----map section_left--  -->
+                    <div class="mb-[20px] lg:mb-[0] w-[100%] lg:w-[54%] xl:w-[60%] flex-shrink">
+                        <img src="assets/img/thumbs/Map.png" alt="" />
+                    </div>
+
+                    <!-- ----map section Right--  -->
+                    
+                    <div class="w-[100%] lg:w-[44%] xl:w-[34%] flex flex-col items-center justify-center mt-[20px] md:mt-0">
+                        <!-- ---single-item USA--  -->
+                        <div class="flex items-center lg:justify-start gap-2 border-b-[1px] border-[#ECECEC1F] pb-[15px]">
+                            <div class="w-[50px] h-[50px] flex-shrink-0">
+                                <img src="assets/img/icons/USA.png" alt=""/>
+                            </div>
+
+                            <div class="">
+                                <h6 class="font-space font-bold text-base leading-[27px] text-white">
+                                    United States
+                                </h6>
+                                <div class="flex items-center gap-[15px] sm:gap-[26px]">
+                                    <div class="w-[220px] sm:w-[273px] h-[9px] bg-[#F6F6F61A] rounded-[11px] overflow-hidden">
+                                        <div class="bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  w-[74%] text-xs leading-none py-1 rounded-[11px]">  
+                                        </div>
+                                    </div>
+                                    <span class="font-space font-bold text-right text-white text-sm">
+                                        54%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ---single-item India--  -->
+                        <div class="flex items-center  gap-2 border-b-[1px] border-[#ECECEC1F] pb-[15px] ">
+                            <div class="w-[50px] h-[50px] flex-shrink-0">
+                                <img src="assets/img/icons/India.png" alt="" />
+                            </div>
+
+                            <div class="">
+                                <h6 class="font-space font-bold text-base leading-[27px] text-white">
+                                    India
+                                </h6>
+                                <div class="flex items-center gap-[15px] sm:gap-[26px]">
+                                    <div class="w-[220px] sm:w-[273px] h-[9px] bg-[#F6F6F61A] rounded-[11px] overflow-hidden ">
+                                        <div class="bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  w-[34%] text-xs leading-none py-1 rounded-[11px]">  
+                                        </div>
+                                    </div>
+                                    <span class="font-space font-bold text-right text-white text-sm">
+                                        54%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ---single-item Russia--  -->
+                        <div class="flex items-center gap-2 border-b-[1px] border-[#ECECEC1F] pb-[15px]">
+                            <div class="w-[50px] h-[50px] flex-shrink-0">
+                                <img src="assets/img/icons/Russia.png" alt="" />
+                            </div>
+
+                            <div class="">
+                                <h6 class="font-space font-bold text-base leading-[27px] text-white">
+                                    Russia
+                                </h6>
+                                <div class="flex items-center gap-[15px] sm:gap-[26px]">
+                                    <div class="w-[220px] sm:w-[273px] h-[9px] bg-[#F6F6F61A] rounded-[11px] overflow-hidden ">
+                                        <div class="bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  w-[84%] text-xs leading-none py-1 rounded-[11px]">  
+                                        </div>
+                                    </div>
+                                    <span class="font-space font-bold text-right text-white text-sm">
+                                        54%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ---single-item--  -->
+                        <div class="flex items-center gap-2 border-b-[1px] border-[#ECECEC1F] pb-[15px]">
+                            <div class="w-[50px] h-[50px] flex-shrink-0">
+                                <img src="assets/img/icons/USA.png" alt="" />
+                            </div>
+
+                            <div class="">
+                                <h6 class="font-space font-bold text-base leading-[27px] text-white">
+                                    United States
+                                </h6>
+                                <div class="flex items-center gap-[15px] sm:gap-[26px]">
+                                    <div class="w-[220px] sm:w-[273px] h-[9px] bg-[#F6F6F61A] rounded-[11px] overflow-hidden ">
+                                        <div class="bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100%  w-[74%] text-xs leading-none py-1 rounded-[11px]">  
+                                        </div>
+                                    </div>
+                                    <span class="font-space font-bold text-right text-white text-sm">
+                                        64%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== MAP Area End =========-->
+
+        <!--======== contact Area Start =========-->
+        <section class="mb-[60px] md:mb-[100px]">
+            <div class="container_lg px-4">
+                <div class="border rounded-[30px] border-white py-[81px]">
+                    <h2 class="font-space font-normal text-white leading-[110%] text-center text-2xl md:text-[44px] max-w-[770px] mx-auto pb-[31px]">
+                        Ready to be a part of the most valuable proptech group?
+                    </h2>
+                    <p class="font-poppins text-base lg:text-lg text-[#FFFFFF99] text-center font-normal mb-[41px]">
+                        Leave your email to be notified of the launch date
+                    </p>
+
+                    <!-- --Email_box--  -->
+                    <div class="mt-[25px] lg:mt-[40px] max-w-[451px] mx-auto flex justify-between border border-[#98A8B3] py-[5px] px-[5px] lg:py-[7px] lg:px-[7px] bg-white rounded-[29px] overflow-hidden">
+                        <input
+                            class="w-[80%] pl-[20px] focus:outline-none text-black"
+                            type="email"
+                            placeholder="Your email address"
+                        />
+                        <button class="py-[12px] px-[28px] md:py-[15px] md:px-[35px] text-[14px] font-[600] text-[#fff] bg-[#000000] flex-shrink-0 rounded-[45px]">
+                            <svg width="8"  height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1_712)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.406222 13.7957C0.689722 14.0687 1.14822 14.0687 1.43102 13.7957L7.42512 8.01091C7.5593 7.8834 7.66614 7.72993 7.73914 7.55983C7.81215 7.38973 7.8498 7.20657 7.8498 7.02146C7.8498 6.83636 7.81215 6.65319 7.73914 6.4831C7.66614 6.313 7.5593 6.15953 7.42512 6.03201L1.38762 0.204512C1.2506 0.0742753 1.06914 0.0010736 0.880106 -0.000226522C0.691069 -0.00152664 0.508623 0.0691723 0.369822 0.197512C0.301062 0.26089 0.246045 0.337709 0.208178 0.423212C0.170311 0.508716 0.1504 0.601082 0.149679 0.694592C0.148957 0.788103 0.167439 0.880766 0.203982 0.966843C0.240524 1.05292 0.294349 1.13058 0.362122 1.19501L5.88792 6.52691C5.95507 6.59067 6.00853 6.66743 6.04507 6.75251C6.0816 6.83759 6.10044 6.92922 6.10044 7.02181C6.10044 7.11441 6.0816 7.20603 6.04507 7.29111C6.00853 7.37619 5.95507 7.45295 5.88792 7.51671L0.406222 12.8066C0.339099 12.8703 0.285646 12.947 0.249118 13.032C0.21259 13.1171 0.193753 13.2086 0.193753 13.3012C0.193753 13.3937 0.21259 13.4853 0.249118 13.5703C0.285646 13.6553 0.339099 13.732 0.406222 13.7957Z" fill="white" />
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1_712">
+                                    <rect
+                                    width="7.7"
+                                    height="14"
+                                    fill="white"
+                                    transform="translate(0.149902)"
+                                    />
+                                </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== contact Area End =========-->
+
+        <!--======== early adopters Area Start =========-->
+        <section class="mb-[60px] md:mb-[113px]">
+            <div class="container">
+                <!--------- section title start  ------->
+                <h6 class="text-base lg:text-lg mb-[10px] lg:mb-[23px] font-bold text-center bg-gradient-to-r from-[#CDB45F] from-0% to-[#B08E35] to-100% bg-clip-text text-transparent">
+                    Member Stories
+                </h6>
+                <h2 class="text-2xl md:text-4xl lg:text-4xl mb-5 md:mb-[35px] lg:mb-[68px] text-center font-space font-normal text-white">
+                    Words from our  <span class="font-[700]"> early adopters </span>
+                </h2>
+                <!--------- section title End  --------->
+
+                <!-- adopters card wrapper  -->
+                <div class="flex items-center justify-center lg:justify-between flex-wrap lg:flex-nowrap gap-5">
+                    <!-- single card  2-->
+                    <div class="group pb-[34px] pt-[27px] px-[34px] rounded-[10px] transition border border-white hover:bg-[#F6E7D3]">
+                        <div class="max-w-[283px] mx-auto">
+                            <div class="flex items-center justify-between mb-5">
+                                <!-- card_thumb -->
+                                <div class="h-[59px] w-[59px]">
+                                    <img
+                                        src="assets/img/icons/Adopters-1.png"
+                                        class="w-full h-full object-cover"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="ratting flex items-center gap-[9px]">
+                                    <i>
+                                        <img src="assets/img/icons/Star.svg" alt="">
+                                    </i>
+                                    <span class="font-space text-base font-bold text-white group-hover:text-black transition">
+                                        4.8
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <!-- card_title -->
+                            <h6 class="font-space font-bold text-[22px] text-white mb-[14px] group-hover:text-black transition" >
+                                Jenny Wilson
+                            </h6>
+                            <!-- card_body -->
+                            <div class=" font-manrope font-medium text-base text-[#909AA8CC] group-hover:text-[#000000A6] transition" >
+                                It is a long established fact that a reader will be
+                                distracted by the readable content of a page
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single card  1-->
+                    <div class="group pb-[34px] pt-[27px] px-[34px] rounded-[10px] transition border border-white hover:bg-[#F6E7D3]">
+                        <div class="max-w-[283px] mx-auto">
+                            <div class="flex items-center justify-between mb-5">
+                                <!-- card_thumb -->
+                                <div class="h-[59px] w-[59px]">
+                                    <img
+                                        src="assets/img/icons/Adopters-2.png"
+                                        class="w-full h-full object-cover"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="ratting flex items-center gap-[9px]">
+                                    <i>
+                                        <img src="assets/img/icons/Star.svg" alt="">
+                                    </i>
+                                    <span class="font-space text-base font-bold text-white group-hover:text-black transition">
+                                        4.8
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <!-- card_title -->
+                            <h6 class="font-space font-bold text-[22px] text-white mb-[14px] group-hover:text-black transition" >
+                                Jenny Wilson
+                            </h6>
+                            <!-- card_body -->
+                            <div class=" font-manrope font-medium text-base text-[#909AA8CC] group-hover:text-[#000000A6] transition" >
+                                It is a long established fact that a reader will be
+                                distracted by the readable content of a page
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single card  3-->
+                    <div class="group pb-[34px] pt-[27px] px-[34px] rounded-[10px] transition border border-white hover:bg-[#F6E7D3]">
+                        <div class="max-w-[283px] mx-auto">
+                            <div class="flex items-center justify-between mb-5">
+                                <!-- card_thumb -->
+                                <div class="h-[59px] w-[59px]">
+                                    <img
+                                        src="assets/img/icons/Adopters-1.png"
+                                        class="w-full h-full object-cover"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="ratting flex items-center gap-[9px]">
+                                    <i>
+                                        <img src="assets/img/icons/Star.svg" alt="">
+                                    </i>
+                                    <span class="font-space text-base font-bold text-white group-hover:text-black transition">
+                                        4.8
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <!-- card_title -->
+                            <h6 class="font-space font-bold text-[22px] text-white mb-[14px] group-hover:text-black transition" >
+                                Jenny Wilson
+                            </h6>
+                            <!-- card_body -->
+                            <div class=" font-manrope font-medium text-base text-[#909AA8CC] group-hover:text-[#000000A6] transition" >
+                                It is a long established fact that a reader will be
+                                distracted by the readable content of a page
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== early adopters Area End =========-->
+
+        <!--========Whatsapp Area Start =========-->
+        <section class="relative">
+            <img src="assets/img/thumbs/left_shape.png" alt="" class="absolute -left-[60%] -top-[825px] -z-10 ">
+            <img src="assets/img/thumbs/right_shape.png" alt="" class="absolute -z-10 -top-[450px] -right-[750px]">
+            <div class="container_lg">
+                <div class="joining_inner gradient_bg rounded-[30px] pt-14 px-4 md:px-11 lg:px-14" >
+                    <div class="">
+                        <div class="flex md:gap-[30px] lg:gap-[73px] flex-wrap lg:flex-nowrap">
+                            <!-- left-side  -->
+                            <div class="w-full lg:w-1/2 flex items-end mb-6 lg:mb-0">
+                                <div class="h-full ">
+                                    <img src="assets/img/thumbs/Tab.png"  alt="" class="h-full"/>
+                                </div>
+                            </div>
+        
+                            <!-- right-side  -->
+                            <div class="w-full lg:w-1/2">
+                                <div class="text-center lg:text-left">
+                                    <h4 class="font-space font-bold not-italic text-lg md:text-2xl text-white max-w-[384px] leading-[120%] mb-4 mx-auto lg:mx-0">
+                                        You're joining proptech's high signal global community
+                                    </h4>
+                                    <p class="text-[#FFFFFFCC] text-base leading-5 font-space font-normal mb-8 max-w-[485px] w-full mx-auto lg:mx-0">
+                                        At Leverage, we have designed our community towards helping grow your businesses, sharpen your skills and learn from your peers.
+                                    </p>
+                                    <button class=" font-space font-bold text-[14px] md:text-base text-white text-center py-4 md:py-5 px-7 md:px-9 bg-black rounded-[5px] mb-[56px] lg:mb-[71px]">
+                                        Message us in Whatsapp
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--======== Whatsapp Area End =========-->
+
+        <!--======== footer-logo Area Start =========-->
+        <section class="">
+            <div class="container pt-[43px] pb-[39px] border-b border-[#FFFFFF36]">
+                <div class="flex items-center justify-between">
+                    <div class="header_logo">
+                        <a href="#" class="flex items-center gap-[10px] cursor-pointer">
+                            <img src="assets/img/logos/Logo-icon.png" alt="" class="w-[32px] h-[32px] max-w-full">
+                            <span class="text-white">Leverage.ViP</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-[17px]">
+                        <a href="#">
+                            <img src="assets/img/icons/facebook.png" alt="" class="max-w-[24px]">
+                        </a>
+                        <a href="#">
+                            <img src="assets/img/icons/linkedin.png" alt="" class="max-w-[24px]">
+                        </a>
+                        <a href="#">
+                            <img src="assets/img/icons/Instagram.png" alt="" class="max-w-[24px]">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--======== footer logo Area End =========-->
+
+
+    </main>
+    <!--======== Main Area End =========-->
+
+
+    <!--======== Footer Area Start =========-->
+    <footer class="my-[39px]">
+        <div class="container">
+            <p class="text-center font-space font-normal text-[14px] md:text-base text-[#FFFFFFCC]">
+                @Copyright Reserved Leverage.VIP 2023
+            </p>
+        </div>
+    </footer>
+    <!--======== Footer Area End =========-->
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+
+    <script>
+        const openBtn = document.querySelector(".open_btn");
+        const closeBtn = document.querySelector(".close_btn");
+        const overlay = document.querySelector(".overlay");
+
+        openBtn.addEventListener("click", ()=>{
+            overlay.classList.remove('hidden');
+        })
+        closeBtn.addEventListener("click", ()=>{
+            overlay.classList.add('hidden');
+        })
+        overlay.addEventListener("click", ()=>{
+            overlay.classList.add('hidden');
+        })
+    </script>
+
+</body>
+
+</html>
